@@ -124,7 +124,7 @@ public class Module1_Tests {
 
 		// Task 3(b) - Verify modelMap.put() is called
 		ModelMap modelMap = Mockito.mock(ModelMap.class);
-		Mockito.when(modelMap.put("title", "Blog Post 1")).thenReturn(null);
+		Mockito.when(modelMap.put("title", "This is a title")).thenReturn(null);
 		assertNotNull("Task 1: Method listPosts() does not exist in BlogController.", method);
 		//blogController.listPosts(modelMap);
 		try {
@@ -137,13 +137,13 @@ public class Module1_Tests {
 
 		boolean putCalledCorrectly = false;
 		try {
-			Mockito.verify(modelMap).put("title", "Blog Post 1");
+			Mockito.verify(modelMap).put("title", "This is a title");
 			putCalledCorrectly = true;
 		} catch (Error e) {
 			////e.printStackTrace();
 		}
 
-		assertTrue("Task 3: Did not call `put()` on the `ModelMap` with a key of `\"title\"` and `\"Blog Post 1\"`",
+		assertTrue("Task 3: Did not call `put()` on the `ModelMap` with a key of `\"title\"` and `\"This is a title\"`",
 				putCalledCorrectly);
 	}
 
@@ -172,7 +172,7 @@ public class Module1_Tests {
 				h2Elements.size() > 0);
 
 		assertEquals("Task 4: An `<h2>` tag does not display the title parameter.",
-				"Blog Post 1", h2Elements.first().html());
+				"This is a title", h2Elements.first().html());
 	}
 
 }

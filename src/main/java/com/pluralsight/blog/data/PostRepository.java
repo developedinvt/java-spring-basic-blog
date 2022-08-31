@@ -50,6 +50,7 @@ public class PostRepository {
     }
 
     public Post findById(Long id) {
-        return null;
+        Post post = ALL_POSTS.stream().filter(p -> p.getId() == id).findFirst().orElse(null);
+        return post;
     }
 }
